@@ -9,7 +9,7 @@
             
             $login = $_POST["username"];
             
-			$body = <<<EBODY
+			$body=<<<EBODY
 					Login: $login
 EBODY;
 			echo generatePage($body, $title = "Login");

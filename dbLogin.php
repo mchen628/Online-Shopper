@@ -1,7 +1,7 @@
 <?php
 	$host = "localhost";
-	$user = "admin";
+	$user = "dbuser";
 	$password = "givemejob";
-	$database = "ShoppingCart";
-    $table = "user";
+	$database = "CSIgloo";
+    $table = "carts";
 ?>
