@@ -47,29 +47,20 @@ EBODY;
 				}
 
 				$email = trim($_POST['email']);
-				$password = trim($_POST['password']);
 
 				//prevent sql injection (cyber security)
-				$sqlQuery = $db_connection->prepare("select password from $table where email=?");
+				$sqlQuery = $db_connection->prepare("select email,password,firstname, lastname from $table where email=?");
 				$sqlQuery->bind_param("s", $email);
-				$result = $sqlQuery->execute();
-
-
-				if (!$result) {
-					die("Retrieval failed: ". $db_connection->error);
-				} else {
-					$sqlQuery->bind_result($hashed);
-					if (!$sqlQuery->fetch()) {
-						$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
-					} else {
-						echo $password ." ". $hashed;
-						if(password_verify($password,$hashed)) {
-							header("location: main.php");
-						} else {
-							$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
-						}
-					}
-				}
+				$sqlQuery->execute();
+                $sqlQuery->bind_result($email, $upassword, $firstname, $lastname);
+                $sqlQuery->fetch();
+                
+                if(password_verify($_POST['password'], $upassword)){// login successful
+                    echo "login success";
+                }else{
+                    echo "invalid username and password combination";
+                }
+				
 				/* Closing connection */
 				$db_connection->close();
 			}
