@@ -29,7 +29,7 @@
 						</div>
 					</form>
 					<input type="checkbox" name="rememberME" value="Remember Me" />Remember Me</br>
-					<a href ="forgotpw.php"/>Forgot Password?
+					<a href ="forgotpw.php"/>Forgot Password?</a>
 
 
 					</fieldset>
@@ -46,30 +46,25 @@ EBODY;
 					die($db_connection->connect_error);
 				}
 
-				$email = trim($_POST['email']);
-				$password = trim($_POST['password']);
-
 				//prevent sql injection (cyber security)
-				$sqlQuery = $db_connection->prepare("select password from $table where email=?");
-				$sqlQuery->bind_param("s", $email);
-				$result = $sqlQuery->execute();
-
-
-				if (!$result) {
-					die("Retrieval failed: ". $db_connection->error);
-				} else {
-					$sqlQuery->bind_result($hashed);
-					if (!$sqlQuery->fetch()) {
-						$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
-					} else {
-						echo $password ." ". $hashed;
-						if(password_verify($password,$hashed)) {
-							header("location: main.php");
-						} else {
-							$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
-						}
-					}
+				$sqlQuery = $db_connection->prepare("select email,password,firstname,lastname from $table where email=?");
+				$sqlQuery->bind_param("s", $_POST['email']);
+				if(!$sqlQuery->execute()) {
+						die("Retrieval failed: ".$sqlQuery->error);
 				}
+				
+                $sqlQuery->bind_result($email, $password, $firstname, $lastname);
+                if(!$sqlQuery->fetch()) {
+					$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
+				}
+
+                if(password_verify($_POST['password'], $password)){// login successful
+                    echo "login success";
+                }else{
+					
+                    echo "invalid username and password combination";
+                }
+				
 				/* Closing connection */
 				$db_connection->close();
 			}

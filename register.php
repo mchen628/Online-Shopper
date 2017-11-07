@@ -12,9 +12,9 @@
                 <form action="{$_SERVER['PHP_SELF']}" method="post">
                 <fieldset>
                 <h2>Create an Account</h2>
-                    <strong>Firstname: <input type="text" name="firstname"></strong><br><br>
-                    <strong>Lastname: <input type="text" name="lastname"></strong><br><br>
-                    <strong>Email: <input type="email" name="email" maxlength="30" size="30" placeholder="example@gmail.com"></strong><br><br>
+                    <strong>Firstname: <input type="text" name="firstname" required></strong><br><br>
+                    <strong>Lastname: <input type="text" name="lastname" required></strong><br><br>
+                    <strong>Email: <input type="email" name="email" maxlength="30" size="30" placeholder="example@gmail.com" required></strong><br><br>
                     <strong>Password: <input type="password" name="password" required></strong><br><br>
                     <strong>Verify Password : <input type="password" name="vpassword" required></strong><br><br><br>
 
@@ -45,15 +45,19 @@ EBODY;
 				$firstname = trim($_POST['firstname']);
 				$lastname = trim($_POST['lastname']);
                 $hashed = password_hash($password, PASSWORD_DEFAULT);
-
-                $sqlQuery = $db_connection->prepare("insert into $table (email, password, firstname, lastname) values (?,?,?,?)");
-                $sqlQuery->bind_param("ssss", $email, $hashed, $firstname, $lastname);
-                $result = $sqlQuery->execute();
-
-                if (!$result) {
-                    die("Insertion failed: " . $sqlQuery->error);
+                
+                if(password_verify($_POST['vpassword'], $hashed)){// verify password
+                    $sqlQuery = $db_connection->prepare("insert into $table (email, password, firstname, lastname) values (?,?,?,?)");
+                    $sqlQuery->bind_param("ssss", $email, $hashed, $firstname, $lastname);
+                    if(!$sqlQuery->execute()) {
+						die("Insertion failed: ".$sqlQuery->error);
+					}
+                    header("location: login.php");
                 }
-				header("location: login.php");
+                else{
+                    echo "Password does not matched!";
+                }
+				
 
 				/* Closing connection */
 				$db_connection->close();
