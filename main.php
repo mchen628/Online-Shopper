@@ -4,6 +4,7 @@
     session_start();
 
 	$user = $_SESSION['user'];
+	$email = $_SESSION['email'];
 
 	$body=<<<EBODY
 		<h2>Welcome to Online-Shopper, $user</h2><br>
@@ -131,7 +132,7 @@
 			<div class="col-sm-4 text-right text-down">
 				<input type="button" value="Check Out" id="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px">
 		</div>
-		<div id="email" style="visibility: hidden;">{$user}</div>
+		<div id="email" style="visibility: hidden;">{$email}</div>
 EBODY;
 	echo generatePage($body, $title = "Main Page");
 ?>

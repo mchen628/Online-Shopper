@@ -32,7 +32,7 @@ $(document).ready(function(){
         $.ajax({
             url: 'backEnd.php',
             data: {
-                item: $("#item").val(),price: $("#price").val(), link:$("#link").val(), email:$("#email").text(), table:"wishlist"
+                item: $("#item").val(),price: $("#price").val(), link:$("#link").val(), email:$("#email").text(), table:"cartlist"
             },
             error: function() {
                 alert("an error has occured");
