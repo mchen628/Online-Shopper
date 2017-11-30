@@ -14,10 +14,10 @@
 				Item: <input type="text" id="item" placeholder="Search" size="25em">
 			</div>
 			<div class="col-sm-4 text-center">
-				Price: <input type="text" id="item" placeholder="$0.00 (optional)" size="25em">
+				Price: <input type="text" id="price" placeholder="$0.00 (optional)" size="25em">
 			</div>
 			<div class="col-sm-4 text-center">
-				Link: <input type="text" id="item" placeholder="www.example.com (optional)" size="25em">
+				Link: <input type="text" id="link" placeholder="www.example.com (optional)" size="25em">
 			</div>
 		</div><br>
 		
@@ -124,7 +124,8 @@
 		<div class="row">
 			<h2>Budget: </h2><br>
 			<h2>Current Cart Cost: </h2><br>
-		<div>
+		</div>
+		<div id="email" style="visibility: hidden;">{$user}</div>
 EBODY;
 	echo generatePage($body, $title = "Main Page");
 ?>
