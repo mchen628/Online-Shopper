@@ -61,7 +61,7 @@ EBODY;
 			} else {
 				echo $password ." ". $hashed;
 				if(password_verify($password,$hashed)) {
-					$_SESSION['user'] = $firstname . $lastname;
+					$_SESSION['user'] = $_POST['firstname'] . $_POST['$lastname'];
 					header("location: main.php");
 				} else {
 					$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
