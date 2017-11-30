@@ -37,7 +37,7 @@
 		<!-- LISTS -->
 		<div class="row">
 			<!-- WISH LIST -->
-			<div class="col-sm-4 text-center" style="background-color: white; height: 30em;">
+			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="wish" class="cssList">
 					<div class="row">
 						<div class="col-sm-4 text-center">
@@ -47,7 +47,7 @@
 							asdfasd
 						</div>
 						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="10" height="10" alt="delete" id="delete">
+						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
 						</div>
 					</div>
 					<div class="row">
@@ -58,14 +58,14 @@
 							asdfasd
 						</div>
 						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="10" height="10" alt="delete" id="delete">
+						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
  						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- CART -->
-			<div class="col-sm-4 text-center" style="background-color: white; height: 30em;">
+			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="cart" class="cssList">
 					<div class="row">
 						<div class="col-sm-4 text-center">
@@ -75,7 +75,7 @@
 							asdfasd
 						</div>
 						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="10" height="10" alt="delete" id="delete">
+						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
 						</div>
 					</div>
 					<div class="row">
@@ -86,14 +86,14 @@
 							asdfasd
 						</div>
 						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="10" height="10" alt="delete" id="delete">
+						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- LINKS -->
-			<div class="col-sm-4 text-center" style="background-color: white; height: 30em;">
+			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="links" class="cssList">
 					<div class="row">
 						<div class="col-sm-4 text-center">
@@ -103,7 +103,7 @@
 							asdfasd
 						</div>
 						<div class="col-sm-4 text-center">
-							<img src="delete.jpg" width="10" height="10" alt="delete" id="delete">
+						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
 						</div>
 					</div>
 					<div class="row">
@@ -114,7 +114,7 @@
 							asdfasd
 						</div>
 						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="10" height="10" alt="delete" id="delete">
+						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
 						</div>
 					</div>
 				</div>
@@ -123,13 +123,13 @@
 
 		<div class="row">
 			<div class="col-sm-4 ">
-				<h2>Budget: </h2><br>
-				<h2>Current Cart Cost: </h2><br>
+				<strong>Your Budget: </strong><input type="text" id="budget" placeholder="Please enter your budget"><br><br>
+				<strong>Current Cart Cost: <strong><input type="text" id="budget" readonly><br>
 			</div>
 			<div class="col-sm-4 text-center">
 			</div>
-			<div class="col-sm-4 text-center">
-				Link: <input type="text" id="link" placeholder="www.example.com (optional)" size="25em">
+			<div class="col-sm-4 text-right text-down">
+				<input type="button" value="Check Out" id="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px">
 		</div>
 		<div id="email" style="visibility: hidden;">{$user}</div>
 EBODY;

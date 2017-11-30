@@ -21,8 +21,9 @@ fieldset {
 }
 
 .cssList {
-    background-color: yellow;
+    background-color: lightpink;
     border: .5em double red;
+    border-radius: .9em;
     width: 75%;
     height: 100%;
     margin: 0 auto;
