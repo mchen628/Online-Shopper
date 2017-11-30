@@ -2,6 +2,8 @@
 	require_once("support.php");
 	require_once("dblogin.php");
 
+	session_start();
+	
 	$body=<<<EBODY
 		<div class="col-sm-4 text-center">
 		</div>
@@ -59,6 +61,7 @@ EBODY;
 			} else {
 				echo $password ." ". $hashed;
 				if(password_verify($password,$hashed)) {
+					$_SESSION['user'] = $firstname . $lastname;
 					header("location: main.php");
 				} else {
 					$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
