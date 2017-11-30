@@ -131,7 +131,7 @@
 			<div class="col-sm-4 text-center">
 				Link: <input type="text" id="link" placeholder="www.example.com (optional)" size="25em">
 		</div>
-		<div id="email" style="visibility: hidden;">thisIsATest@gmail.com</div>
+		<div id="email" style="visibility: hidden;">{$user}</div>
 EBODY;
 	echo generatePage($body, $title = "Main Page");
 ?>
