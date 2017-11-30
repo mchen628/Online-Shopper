@@ -125,7 +125,7 @@
 			<h2>Budget: </h2><br>
 			<h2>Current Cart Cost: </h2><br>
 		</div>
-		<div id="email" style="visibility: hidden;">{$user}</div>
+		<div id="email" style="visibility: hidden;">thisIsATest@gmail.com</div>
 EBODY;
 	echo generatePage($body, $title = "Main Page");
 ?>
