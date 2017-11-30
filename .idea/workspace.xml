@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7e88f591-54b0-4eb1-a31c-f0ece61e7fcc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backEnd.php" afterPath="$PROJECT_DIR$/backEnd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientServerComm.js" afterPath="$PROJECT_DIR$/clientServerComm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.php" afterPath="$PROJECT_DIR$/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support.php" afterPath="$PROJECT_DIR$/support.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,8 +50,8 @@
       <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2306">
-              <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="431">
+              <caret line="133" column="58" lean-forward="false" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -97,9 +94,9 @@
       <list>
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/support.php" />
-        <option value="$PROJECT_DIR$/main.php" />
         <option value="$PROJECT_DIR$/backEnd.php" />
         <option value="$PROJECT_DIR$/clientServerComm.js" />
+        <option value="$PROJECT_DIR$/main.php" />
       </list>
     </option>
   </component>
@@ -175,7 +172,7 @@
       <updated>1509723452084</updated>
       <workItem from="1509723453262" duration="55000" />
       <workItem from="1512007849240" duration="7613000" />
-      <workItem from="1512062574399" duration="8736000" />
+      <workItem from="1512062574399" duration="10195000" />
     </task>
     <task id="LOCAL-00001" summary="Added some databases related files">
       <created>1512010998740</created>
@@ -198,16 +195,23 @@
       <option name="project" value="LOCAL" />
       <updated>1512015764954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added database functionality">
+      <created>1512071377674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1512071377674</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16404000" />
+    <option name="totallyTimeSpent" value="17863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
@@ -238,7 +242,8 @@
     <MESSAGE value="Added some databases related files" />
     <MESSAGE value="Merge remote-tracking branch 'remotes/origin/master'&#10;&#10;# Conflicts:&#10;#&#9;login.php&#10;#&#9;register.php" />
     <MESSAGE value="Added some jquery ajax code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some jquery ajax code" />
+    <MESSAGE value="Added database functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added database functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -359,8 +364,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2306">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="431">
+          <caret line="133" column="58" lean-forward="false" selection-start-line="133" selection-start-column="58" selection-end-line="133" selection-end-column="58" />
           <folding />
         </state>
       </provider>
