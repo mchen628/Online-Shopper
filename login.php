@@ -47,7 +47,7 @@ EBODY;
 		$password = trim($_POST['password']);
 
 		//prevent sql injection (cyber security)
-		$sqlQuery = $db_connection->prepare("select password from $table where email=?");
+		$sqlQuery = $db_connection->prepare("select * from $table where email=?");
 		$sqlQuery->bind_param("s", $email);
 		$result = $sqlQuery->execute();
 
@@ -55,13 +55,14 @@ EBODY;
 		if (!$result) {
 			die("Retrieval failed: ". $db_connection->error);
 		} else {
-			$sqlQuery->bind_result($hashed);
+			$sqlQuery->bind_result($email, $hashed, $firstname, $lastname);
 			if (!$sqlQuery->fetch()) {
 				$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
 			} else {
 				echo $password ." ". $hashed;
 				if(password_verify($password,$hashed)) {
-					$_SESSION['user'] = $_POST['firstname'] . $_POST['$lastname'];
+					$_SESSION['user'] = $firstname ." ". $lastname;
+					$_SESSION['email'] = $email;
 					header("location: main.php");
 				} else {
 					$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
