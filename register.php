@@ -45,17 +45,15 @@ EBODY;
 				$firstname = trim($_POST['firstname']);
 				$lastname = trim($_POST['lastname']);
                 $hashed = password_hash($password, PASSWORD_DEFAULT);
-                
-                if(password_verify($_POST['vpassword'], $hashed)){// verify password
-                    $sqlQuery = $db_connection->prepare("insert into $table (email, password, firstname, lastname) values (?,?,?,?)");
-                    $sqlQuery->bind_param("ssss", $email, $hashed, $firstname, $lastname);
-                    $sqlQuery->execute();
-                    header("location: login.php");
+
+                $sqlQuery = $db_connection->prepare("insert into $table (email, password, firstname, lastname) values (?,?,?,?)");
+                $sqlQuery->bind_param("ssss", $email, $hashed, $firstname, $lastname);
+                $result = $sqlQuery->execute();
+
+                if (!$result) {
+                    die("Insertion failed: " . $sqlQuery->error);
                 }
-                else{
-                    echo "Password does not matched!";
-                }
-				
+				header("location: login.php");
 
 				/* Closing connection */
 				$db_connection->close();
