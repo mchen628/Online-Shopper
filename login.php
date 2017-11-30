@@ -17,7 +17,7 @@
 						Login ID: <input type="email" name="email" maxlength="30" size="30" placeholder="example@gmail.com" required/><br><br>
 
 						<img src="pw.jpg" width="20" height="20" alt="pw" />
-						Password: <input type="password" name="password" maxlength="20" size="20" required/></br></br></br>
+						Password: <input type="password" name="password" maxlength="20" size="20" required/></br></br></br></br></br></br>
 
 						<div id="buttonHolder">
 							<input type="submit" name="login" value="Login"/>
