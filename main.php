@@ -131,7 +131,7 @@
 			<div class="col-sm-4 text-right text-down">
 				<input type="button" value="Check Out" id="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px">
 		</div>
-		<div id="email" style="visibility: hidden;">{$user}</div>
+		<div id="email" style="visibility: hidden;">thisIsATest@gmail.com</div>
 EBODY;
 	echo generatePage($body, $title = "Main Page");
 ?>
