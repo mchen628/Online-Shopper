@@ -20,7 +20,7 @@ fieldset {
     display: inline-block;
 }
 
-#list {
+.cssList {
     background-color: yellow;
     border: .5em double red;
     width: 75%;
