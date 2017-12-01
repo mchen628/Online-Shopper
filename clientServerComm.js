@@ -1,7 +1,7 @@
 "use strict";
 $(document).ready(function(){
     $("#addList").click(function(){/*
-        $.ajax({url: 'backEnd.php',
+        $.ajax({url: 'addToDataBase.php',
                 data : {item: $("#item").value(),price: $("#price").value(), link:$("#link").value(), email:$("#email").text()},
                 error: function(){
                     alert(textStatus, errorThrown);
@@ -14,7 +14,7 @@ $(document).ready(function(){
                 type: 'POST'
         });*/
         $.ajax({
-            url: 'backEnd.php',
+            url: 'addToDataBase.php',
             data: {
                 item: $("#item").val(),price: $("#price").val(), link:$("#link").val(), email:$("#email").text(), table:"wishlist"
             },
@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
     $("#addCart").click(function(){
         $.ajax({
-            url: 'backEnd.php',
+            url: 'addToDataBase.php',
             data: {
                 item: $("#item").val(),price: $("#price").val(), link:$("#link").val(), email:$("#email").text(), table:"cartlist"
             },
