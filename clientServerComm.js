@@ -23,6 +23,7 @@ $(document).ready(function(){
             },
             dataType: 'text',
             success: function(data) {
+                alert(data);
                 let split = data.split(',');
                 let item = "<div class=\"row\">" +
                                 "<div class=\"col-sm-3\">" +
