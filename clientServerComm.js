@@ -23,7 +23,19 @@ $(document).ready(function(){
             },
             dataType: 'text',
             success: function(data) {
-                alert(data);
+                let split = data.split(',');
+                let item = "<div class=\"row\">" +
+                                "<div class=\"col-sm-3\">" +
+                                    "<input type=\"checkbox\">" +
+                                "</div>" +
+                                "<div class=\"col-sm-5\">" + split[0] + 
+                                "</div>" +
+                                "<div class=\"col-sm-4\">" +
+                                    "<span style=\"font-size: .75em; float: left\">$" + split[1] + "</span>" +
+                                    "<img src=\"delete.jpg\" width=\"15\" height=\"15\" alt=\"delete\" id=\"delete\">" +
+                                "</div>" +
+                            "</div>";
+                document.getElementById("wish").innerHTML += item ;
             },
             type: 'POST'
         });
@@ -39,7 +51,19 @@ $(document).ready(function(){
             },
             dataType: 'text',
             success: function(data) {
-                alert(data);
+                let split = data.split(',');
+                let item = "<div class=\"row\">" +
+                                "<div class=\"col-sm-3\">" +
+                                    "<input type=\"checkbox\">" +
+                                "</div>" +
+                                "<div class=\"col-sm-5\">" + split[0] + 
+                                "</div>" +
+                                "<div class=\"col-sm-4\">" +
+                                    "<span style=\"font-size: .75em; float: left\">$" + split[1] + "</span>" +
+                                    "<img src=\"delete.jpg\" width=\"15\" height=\"15\" alt=\"delete\" id=\"delete\">" +
+                                "</div>" +
+                            "</div>";
+                document.getElementById("cart").innerHTML += item ;
             },
             type: 'POST'
         });

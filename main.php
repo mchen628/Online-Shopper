@@ -40,56 +40,14 @@
 			<!-- WISH LIST -->
 			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="wish" class="cssList">
-					<div class="row">
-						<div class="col-sm-4 text-center">
-							<input type="checkbox">
-						</div>
-						<div class="col-sm-4 text-center">
-							asdfasd
-						</div>
-						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 text-center">
-							<input type="checkbox">
-						</div>
-						<div class="col-sm-4 text-center">
-							asdfasd
-						</div>
-						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
- 						</div>
-					</div>
+					<!-- ITEM GETS ADDED HERE -->
 				</div>
 			</div>
 
 			<!-- CART -->
 			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="cart" class="cssList">
-					<div class="row">
-						<div class="col-sm-4 text-center">
-							<input type="checkbox">
-						</div>
-						<div class="col-sm-4 text-center">
-							asdfasd
-						</div>
-						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 text-center">
-							<input type="checkbox">
-						</div>
-						<div class="col-sm-4 text-center">
-							asdfasd
-						</div>
-						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
-						</div>
-					</div>
+					<!-- ITEM GETS ADDED HERE -->
 				</div>
 			</div>
 
