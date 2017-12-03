@@ -35,3 +35,9 @@ fieldset {
     justify-content: center;
     align-items: center;
 }
+
+#checkoutcss *{
+  border: .5em;
+  border-color: black;
+  border-radius: .9em;
+}

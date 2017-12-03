@@ -1,6 +1,6 @@
 <?php
 	require_once("support.php");
-    require("itemClass.php");
+    //require("itemClass.php");
     require_once("dblogin.php");
     session_start();
 
@@ -10,7 +10,7 @@
     if ($db_connection->connect_error) {
         die($db_connection->connect_error);
     }
-    
+
     //prevent sql injection (cyber security)
     $sqlQuery = $db_connection->prepare("select * from wishlist where email=?");
     $sqlQuery->bind_param("s", $email);
@@ -156,7 +156,9 @@
 			<div class="col-sm-4 text-center">
 			</div>
 			<div class="col-sm-4 text-right text-down">
-				<input type="button" value="Check Out" id="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px">
+			<form action="checkout.php">
+    		<input type="submit" value="Check out" style="color:white; border-radius:6px; background-color:black; width: 150px"/>
+			</form>
 		</div>
 		<div id="email" style="visibility: hidden;">{$email}</div>
 EBODY;
