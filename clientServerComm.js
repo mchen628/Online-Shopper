@@ -149,26 +149,26 @@ $(document).ready(function(){
         });
 
     });
-    $('#profilePic').change(function() {
+    $('#upload').change(function() {
         //get file object
-        let file = document.getElementById('profilePic').files[0];
+        let file = document.getElementById('upload').files[0];
+
         if (file) {
-            $("#profilePic").attr("style", "background-image: url(\""+file.name+"\");");
+            $.ajax({
+                url: 'addImageToDataBase.php',
+                data: {
+                    file:file,email:$("#email").text(),table:"carts"
+                },
+                success: function(data){
+                    $("#profile").attr("src", "data:image/png;base64,"+ data);
+                },
+                dataType: 'image/*',
+                type: 'POST',
+                error: function() {
+                    alert("an error has occured");
+                }
+            });
         }
-        $.ajax({
-            url: 'addToDataBase.php',
 
-            data: {
-                file:file,email:$("#email").text(),table:"carts"
-            },
-            success: function(data){
-
-            },
-            dataType: 'image/*',
-            type: 'POST',
-            error: function() {
-                alert("an error has occured");
-            }
-        });
     });
 });

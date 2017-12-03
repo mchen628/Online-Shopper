@@ -94,7 +94,8 @@
     $email = $_SESSION['email'];
 	$body=<<<EBODY
           <h1 id="welcome" align="right">Welcome to Online-Shopper, $user</h1><br>
-          <input id="profilePic"type="file" accept="image/*">
+          <img class="profilePic" src="#" alt="image"/>
+          <input id="upload" type="file" accept="image/*">
           <h1>Budget: </h1>
 
 

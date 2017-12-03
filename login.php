@@ -58,7 +58,7 @@ EBODY;
 		if (!$result) {
 			die("Retrieval failed: ". $db_connection->error);
 		} else {
-			$sqlQuery->bind_result($email, $hashed, $firstname, $lastname);
+			$sqlQuery->bind_result($email, $hashed, $firstname, $lastname, $profilePic);
 			if (!$sqlQuery->fetch()) {
 				$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
 			} else {
