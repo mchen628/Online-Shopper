@@ -3,7 +3,7 @@
 	require_once("dblogin.php");
 
 	session_start();
-	
+
 	$body=<<<EBODY
 		<div class="col-sm-4 text-center">
 		</div>
@@ -13,10 +13,10 @@
 				<em><h2><strong>Log in To Shop</strong></h2></em></br></br>
 				<img src="login.jpg" width="18" height="18" alt="login"/>
 				Login ID: <input type="email" name="email" maxlength="30" size="30" placeholder="example@gmail.com" required/></br></br>
-	
+
 				<img src="pw.jpg" width="20" height="20" alt="pw" />
 				Password: <input type="password" name="password" maxlength="20" size="20" required/></br></br></br></br></br>
-	
+
 				<div id="buttonHolder">
 					<input type="submit" name="login" value="Login"/>
 			</form>
@@ -24,18 +24,21 @@
 					<input type="submit" value="Register Now!"/>
 				</div>
 			</form><br>
-			
+
 			<input type="checkbox" name="rememberME" value="Remember Me" /> Remember Me</br>
 			<a href ="forgotpw.php"/>Forgot Password?
-	
+
 			</fieldset>
 		</div>
 		<div class="col">
 			<img src="cart.jpg" width="300" height="300" alt="Shopping cart" />
 		</div>
 EBODY;
-	//rememberme and forgotpw have not done yet!!!!!!!!!
 
+	if (isset($_COOKIE['remember'])){
+		header("location: main.php");
+	}
+	else {
 	if (isset($_POST['login'])) {
 		//connect to database
 		$db_connection = new mysqli($host,$user,$password,$database);
@@ -63,6 +66,11 @@ EBODY;
 				if(password_verify($password,$hashed)) {
 					$_SESSION['user'] = $firstname ." ". $lastname;
 					$_SESSION['email'] = $email;
+					if ($_POST['rememberME']) {
+						if(!isset($_COOKIE['remember'])){
+							setcookie('remember',$_SESSION['user']);
+						}
+					}
 					header("location: main.php");
 				} else {
 					$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
@@ -72,5 +80,6 @@ EBODY;
 		/* Closing connection */
 		$db_connection->close();
 	}
+}
 	echo generatePage($body, $title = "Login");
 ?>
