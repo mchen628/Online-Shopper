@@ -23,7 +23,7 @@
     } else {
         $sqlQuery->bind_result($email, $objs);
         if (!$sqlQuery->fetch()) {
-             $addToWishCol = "<strong>No entry exists in the database</strong>";
+             $addToWishCol = "<strong>No entry</strong>";
         } else {
 
             $items = explode("^^^^", $objs);
@@ -59,7 +59,7 @@
         } else {
             $sqlQuery->bind_result($email, $objs);
             if (!$sqlQuery->fetch()) {
-
+                $addToCartCol = "<strong>No entry</strong>";
             } else {
 
                 $items = explode("^^^^", $objs);
@@ -93,8 +93,12 @@
     $user = $_SESSION['user'];
     $email = $_SESSION['email'];
 	$body=<<<EBODY
-		<h2>Welcome to Online-Shopper, $user</h2><br>
 
+         <button id="profilePic"></button>
+         <header id="header">
+            <h1 id="welcome">Welcome to Online-Shopper, $user</h1><br>
+        </header>
+        <hr><br>
 		<!-- ITEM INFO -->
 		<div class="row">
 			<div class="col-sm-4 text-center">

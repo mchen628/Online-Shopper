@@ -1,7 +1,9 @@
 body {
     font-family: Times New Roman;
-    background: LightBlue;
+
     margin: 2em;
+    background-image: url("background.jpg");
+    background-size: 1200px 1200px;
 }
 
 fieldset {
@@ -40,4 +42,29 @@ fieldset {
   border: .5em;
   border-color: black;
   border-radius: .9em;
+}
+
+#profilePic {
+    width: 200px;
+    height: 200px;
+    background-image: url("login.jpg");
+    background-size: 200px 200px;
+    display:inline-block;
+}
+
+#header{
+    display:inline-block;
+}
+
+#welcome{
+    font-size: 70px;
+    color: Blue;
+}
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    margin: 1em 0;
+    padding: 0;
 }
