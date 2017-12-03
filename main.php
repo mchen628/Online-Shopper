@@ -1,11 +1,58 @@
 <?php
 	require_once("support.php");
-
+    require("itemClass.php");
+    require_once("dblogin.php");
     session_start();
 
-	$user = $_SESSION['user'];
 	$email = $_SESSION['email'];
 
+    $db_connection = new mysqli($host,$user,$password,$database);
+    if ($db_connection->connect_error) {
+        die($db_connection->connect_error);
+    }
+    
+    //prevent sql injection (cyber security)
+    $sqlQuery = $db_connection->prepare("select * from wishlist where email=?");
+    $sqlQuery->bind_param("s", $email);
+    $result = $sqlQuery->execute();
+    $addToWishCol = "";
+
+    if (!$result) {
+        die("Retrieval failed: ". $db_connection->error);
+    } else {
+        $sqlQuery->bind_result($email, $objs);
+        if (!$sqlQuery->fetch()) {
+             $addToWishCol = "<strong>No entry exists in the database</strong>";
+        } else {
+
+            $items = explode("^^^^", $objs);
+            if(sizeof($items) > 0  && $items[0] != null){
+                for($i=0; $i<sizeof($items);$i++){
+                    $itemObj = explode(",",$items[$i]);
+
+                    $addToWishCol = $addToWishCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
+                                                      "<li class=\"col-sm-3\">" .
+                                                      "<input type=\"checkbox\">" .
+                                                        "</li>" .
+                                                       "<li class=\"col-sm-5\">" . $itemObj[0] .
+                                                      "</li>" .
+                                                       "<li class=\"col-sm-4\">" .
+                                                       "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
+                                                       "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
+                                                        "</li>" .
+                                                        "</ul>";
+
+                }
+            }
+            $sqlQuery->free_result();
+        }
+    }
+    /* Closing connection */
+    $db_connection->close();
+
+
+    $user = $_SESSION['user'];
+    $email = $_SESSION['email'];
 	$body=<<<EBODY
 		<h2>Welcome to Online-Shopper, $user</h2><br>
 
@@ -41,6 +88,7 @@
 			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="wish" class="cssList">
 					<!-- ITEM GETS ADDED HERE -->
+					{$addToWishCol}
 				</div>
 			</div>
 
@@ -54,28 +102,8 @@
 			<!-- LINKS -->
 			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="links" class="cssList">
-					<div class="row">
-						<div class="col-sm-4 text-center">
-							<input type="checkbox">
-						</div>
-						<div class="col-sm-4 text-center">
-							asdfasd
-						</div>
-						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 text-center">
-							<input type="checkbox">
-						</div>
-						<div class="col-sm-4 text-center">
-							asdfasd
-						</div>
-						<div class="col-sm-4 text-center">
-						<img src="delete.jpg" width="15" height="15" alt="delete" id="delete">
-						</div>
-					</div>
+					<!-- LINKS GETS ADDED HERE -->
+
 				</div>
 			</div>
 		</div><br>
@@ -92,5 +120,6 @@
 		</div>
 		<div id="email" style="visibility: hidden;">{$email}</div>
 EBODY;
+
 	echo generatePage($body, $title = "Main Page");
 ?>

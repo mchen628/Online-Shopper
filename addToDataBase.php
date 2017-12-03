@@ -26,17 +26,20 @@
         $sqlQuery -> bind_result($objString);
         $sqlQuery -> fetch();
         if($objString != null){
-            $objs = unserialize($objString);
-            array_push($objs, $objItem);
-            $obj = serialize($objs);
-            $db_connection->query("UPDATE $toTable SET obj=$obj WHERE email=$email");
+
+            $obj = $objItem->toString();
+            $obj = $objString."^^^^".$obj;
+            $sqlQuery->free_result();
+            $query = "UPDATE $toTable SET obj=\"".$obj."\" WHERE email=\"".$email."\"";
+            mysqli_query($db_connection,$query) or die(mysqli_error($db_connection));
         }else{
-            $objs = [];
-            array_push($objs, $objItem);
-            $obj = serialize($objs);
-            $sqlQuery = $db_connection->prepare("INSERT INTO $toTable (email, obj) VALUES (?, ?)");
-            $sqlQuery->bind_param("ss", $email, $obj);
-            $sqlQuery->execute();
+            $sqlQuery->free_result();
+            $obj = $objItem->toString();
+            $query = "DELETE FROM $toTable WHERE email="."\"".$email."\"";
+            mysqli_query($db_connection,$query) or die(mysqli_error($db_connection));
+            $query = "INSERT INTO $toTable (email, obj) VALUES ("."\"".$email."\","."\"".$obj."\"".")";
+            mysqli_query($db_connection,$query) or die(mysqli_error($db_connection));
+
 
         }
         echo $objItem->toString();
