@@ -35,8 +35,6 @@
         }else{
             $sqlQuery->free_result();
             $obj = $objItem->toString();
-            $query = "DELETE FROM $toTable WHERE email="."\"".$email."\"";
-            mysqli_query($db_connection,$query) or die(mysqli_error($db_connection));
             $query = "INSERT INTO $toTable (email, obj) VALUES ("."\"".$email."\","."\"".$obj."\"".")";
             mysqli_query($db_connection,$query) or die(mysqli_error($db_connection));
 

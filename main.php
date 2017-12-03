@@ -17,6 +17,7 @@
     $result = $sqlQuery->execute();
     $addToWishCol = "";
 
+
     if (!$result) {
         die("Retrieval failed: ". $db_connection->error);
     } else {
@@ -47,6 +48,44 @@
             $sqlQuery->free_result();
         }
     }
+     //prevent sql injection (cyber security)
+        $sqlQuery = $db_connection->prepare("select * from cartlist where email=?");
+        $sqlQuery->bind_param("s", $email);
+        $result = $sqlQuery->execute();
+        $addToCartCol = "";
+
+        if (!$result) {
+            die("Retrieval failed: ". $db_connection->error);
+        } else {
+            $sqlQuery->bind_result($email, $objs);
+            if (!$sqlQuery->fetch()) {
+
+            } else {
+
+                $items = explode("^^^^", $objs);
+                if(sizeof($items) > 0  && $items[0] != null){
+                    for($i=0; $i<sizeof($items);$i++){
+                        $itemObj = explode(",",$items[$i]);
+
+                        $addToCartCol = $addToCartCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
+                                                          "<li class=\"col-sm-3\">" .
+                                                          "<input type=\"checkbox\">" .
+                                                            "</li>" .
+                                                           "<li class=\"col-sm-5\">" . $itemObj[0] .
+                                                          "</li>" .
+                                                           "<li class=\"col-sm-4\">" .
+                                                           "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
+                                                           "<button style=\"background-image:url('delete.jpg');width:17px; height:17px;
+                                                                                background-size: 14px 14px;\"></button>" .
+                                                            "</li>" .
+                                                            "</ul>";
+
+                    }
+                }
+                $sqlQuery->free_result();
+            }
+        }
+
     /* Closing connection */
     $db_connection->close();
 
@@ -96,6 +135,7 @@
 			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
 				<div id="cart" class="cssList">
 					<!-- ITEM GETS ADDED HERE -->
+					{$addToCartCol}
 				</div>
 			</div>
 
