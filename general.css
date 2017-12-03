@@ -49,12 +49,14 @@ fieldset {
     height: 200px;
     background-image: url("login.jpg");
     background-size: 200px 200px;
-    display:inline-block;
+
+    color:transparent;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
 }
 
-#header{
-    display:inline-block;
-}
 
 #welcome{
     font-size: 70px;
@@ -68,3 +70,4 @@ hr{
     margin: 1em 0;
     padding: 0;
 }
+

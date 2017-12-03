@@ -94,10 +94,9 @@
     $email = $_SESSION['email'];
 	$body=<<<EBODY
 
-         <button id="profilePic"></button>
-         <header id="header">
-            <h1 id="welcome">Welcome to Online-Shopper, $user</h1><br>
-        </header>
+         <input id="profilePic"type="file" accept="image/*">
+         <h1 id="welcome">Welcome to Online-Shopper, $user</h1><br>
+
         <hr><br>
 		<!-- ITEM INFO -->
 		<div class="row">
