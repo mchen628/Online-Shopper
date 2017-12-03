@@ -3,6 +3,10 @@
     require_once("dbLogin.php");
     require("itemClass.php");
 
+     $db_connection = new mysqli($host,$user,$password,$database);
+     if ($db_connection->connect_error) {
+          die($db_connection->connect_error);
+     }
     if(isset($_POST['item'])){
         $item = $_POST['item'];
     }
@@ -14,10 +18,7 @@
     }
     if(isset($_POST['email'])){
         $email = $_POST['email'];
-        $db_connection = new mysqli($host,$user,$password,$database);
-        if ($db_connection->connect_error) {
-        	die($db_connection->connect_error);
-        }
+
         $objItem = new Item ($item, floatval($price), $link);
         $toTable = $_POST['table'];
         $sqlQuery = $db_connection->prepare("SELECT obj FROM $toTable WHERE email=?");
@@ -41,8 +42,9 @@
 
         }
         echo $objItem->toString();
-        $db_connection->close();
+
     }
+    $db_connection->close();
 
 
 
