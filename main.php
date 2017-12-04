@@ -101,11 +101,17 @@
     $user = $_SESSION['user'];
     $email = $_SESSION['email'];
 	$body=<<<EBODY
-          <h1 id="welcome" align="right">Welcome to Online-Shopper, $user</h1><br>
-          {$profilePic}
-           <form name="upload_img" enctype="multipart/form-data" id="upload_img">
-                   <input id="upload" type="file" accept="image/*">
-          </form>
+		<div class="row">
+			<div class="col">
+				<h2 id="welcome" align="right">Welcome to Online-Shopper, $user</h2>
+			</div>
+			<div class="col">
+				{$profilePic}
+				 <form name="upload_img" enctype="multipart/form-data" id="upload_img">
+						 <input id="upload" type="file" accept="image/*">
+				</form>
+			</div>
+		</div>
 
 
         <hr><br>
