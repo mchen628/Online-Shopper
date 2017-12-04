@@ -68,10 +68,11 @@ fieldset {
 
 #welcome{
 
-    font-size: 70px;
-    color: Blue;
-
+    color: #2D2828 ;
+    text-shadow: 3px 3px 6px gray;
+    font-size: 50px;
 }
+
 hr{
 
     display: block;
@@ -82,8 +83,17 @@ hr{
     padding: 0;
 }
 
-
-
 #forgotPW {
   background-color: white;
+}
+
+.checkoutcss {
+  position: relative;
+  background-color: white;
+  border: .5em black;
+  border-radius: .4em;
+  width: 75%;
+  height: 100%;
+  margin: 1em;
+  zoom: 1.50;
 }

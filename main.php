@@ -90,9 +90,11 @@
 
                     }
                 }
-                $sqlQuery->free_result();
+
             }
         }
+
+				$sqlQuery->free_result();
      if(isset($_SESSION['profilePic'])){
         $profilePic = "<img id=\"profilePic\" src=\"".$_SESSION['profilePic']."\" alt=\"image\"/>";
      }else{
@@ -102,9 +104,9 @@
     /* Closing connection */
     $db_connection->close();
 
-
     $user = $_SESSION['user'];
     $email = $_SESSION['email'];
+
 	$body=<<<EBODY
 		<div class="row">
 			<div class="col">
@@ -175,17 +177,26 @@
 
 		<div class="row">
 			<div class="col-sm-4 ">
-				<strong>Your Budget: </strong><input type="text" id="budget" placeholder="Please enter your budget"><br><br>
+			<form action="{$_SERVER['PHP_SELF']}" method="post">
+				<strong>Your Budget: &nbsp;</strong><input type="number" name="budget" placeholder="$0.00" size="50" required><br><br>
+				<strong>Enter your tax: <input type="text" name="tax" size="3" required>%<br><br>
 			</div>
 			<div class="col-sm-4 text-center">
 			</div>
 			<div class="col-sm-4 text-right text-down">
-			<form action="checkout.php">
-    		<input type="submit" value="Check out" style="color:white; border-radius:6px; background-color:black; width: 150px"/>
+			<input type="submit" value="Check out" name="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px"/>
 			</form>
 		</div>
 		<div id="email" style="visibility: hidden;">{$email}</div>
+
 EBODY;
+
+if (isset($_POST['checkout'])){
+	$_SESSION['budget'] = trim($_POST['budget']);
+	$_SESSION['tax'] = trim($_POST['tax']);
+	$_SESSION['checkout'] = $_POST['checkout'];
+	header("location:checkout.php");
+}
 
 	echo generatePage($body, $title = "Main Page");
 ?>
