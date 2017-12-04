@@ -2,7 +2,7 @@ body {
 
     font-family: Times New Roman;
     margin: 2em;
-    background-color: deepskyblue;
+    background-color: lightblue;
     background-size: 1200px 1200px;
 }
 
@@ -91,3 +91,6 @@ a{
     z-index: 9999;
 }
 
+#forgotPW {
+  background-color: white;
+}
