@@ -40,7 +40,7 @@ if (!$result) {
 																									 "<span style=\"font-size: .80em; float: right\">$" . $itemObj[1] . "&nbsp&nbsp</span>" .
 																									 "</li>" .
 																									 "</ul>";
-								$total += (int)$itemObj[1];
+								$total += $itemObj[1];
 						}
 				}
 
