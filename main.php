@@ -6,17 +6,18 @@
 
 	$email = $_SESSION['email'];
 
+    //open data base
     $db_connection = new mysqli($host,$user,$password,$database);
     if ($db_connection->connect_error) {
         die($db_connection->connect_error);
     }
 
+     /********wishlist************/
     //prevent sql injection (cyber security)
     $sqlQuery = $db_connection->prepare("select * from wishlist where email=?");
     $sqlQuery->bind_param("s", $email);
     $result = $sqlQuery->execute();
     $addToWishCol = "";
-
 
     if (!$result) {
         die("Retrieval failed: ". $db_connection->error);
@@ -51,23 +52,27 @@
         }
     }
     $sqlQuery->free_result();
+
+    /************cartlist*************/
      //prevent sql injection (cyber security)
         $sqlQuery = $db_connection->prepare("select * from cartlist where email=?");
         $sqlQuery->bind_param("s", $email);
         $result = $sqlQuery->execute();
         $addToCartCol = "";
 
+
         if (!$result) {
             die("Retrieval failed: ". $db_connection->error);
         } else {
             $sqlQuery->bind_result($email, $objs);
-            if (!$sqlQuery->fetch()) {
+            if (!$sqlQuery->fetch()) {//fetch from all items into $objs, its one string
                 $addToCartCol = "<strong>No entry</strong>";
             } else {
-
+                //each item is seperated by ^^^^
                 $items = explode("^^^^", $objs);
                 if(sizeof($items) > 0  && $items[0] != null){
                     for($i=0; $i<sizeof($items);$i++){
+                        //inside each item its seperated by a comma (e.g name,cost,link)
                         $itemObj = explode(",",$items[$i]);
 
                         $addToCartCol = $addToCartCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
