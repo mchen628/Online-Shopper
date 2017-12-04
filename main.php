@@ -171,7 +171,6 @@
 		<div class="row">
 			<div class="col-sm-4 ">
 				<strong>Your Budget: </strong><input type="text" id="budget" placeholder="Please enter your budget"><br><br>
-				<strong>Current Cart Cost: <strong><input type="text" id="cartCost" readonly><br>
 			</div>
 			<div class="col-sm-4 text-center">
 			</div>
