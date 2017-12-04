@@ -1,12 +1,13 @@
 body {
-    font-family: Times New Roman;
 
+    font-family: Times New Roman;
     margin: 2em;
-    background-image: url("background.jpg");
+    background-color: deepskyblue;
     background-size: 1200px 1200px;
 }
 
 fieldset {
+
   border-radius: .9em;
     width: 25em;
     height: 28em;
@@ -19,10 +20,12 @@ fieldset {
 }
 
 #buttonHolder *{
+
     display: inline-block;
 }
 
 .cssList {
+
     background-color: lightpink;
     border: .5em double red;
     border-radius: .9em;
@@ -33,6 +36,7 @@ fieldset {
 }
 
 .container {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +49,7 @@ fieldset {
 }
 
 #profilePic {
+
     width: 200px;
     height: 200px;
 
@@ -54,6 +59,7 @@ fieldset {
 
 }
 #upload {
+
     color:transparent;
     width: 100px;
 
@@ -61,16 +67,27 @@ fieldset {
 
 
 #welcome{
+
     font-size: 70px;
     color: Blue;
 
 }
 hr{
+
     display: block;
     height: 1px;
     border: 0;
     border-top: 1px solid black;
     margin: 1em 0;
     padding: 0;
+}
+
+.row{
+    position: relative;
+}
+
+a{
+    position: relative;
+    z-index: 9999;
 }
 

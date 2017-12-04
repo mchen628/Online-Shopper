@@ -26,7 +26,7 @@
 			</form><br>
 
 			<input type="checkbox" name="rememberME" value="Remember Me" /> Remember Me</br>
-			<a href ="forgotpw.php"/>Forgot Password?
+
 
 			</fieldset>
 		</div>
@@ -67,11 +67,14 @@ EBODY;
 					$_SESSION['user'] = $firstname ." ". $lastname;
 					$_SESSION['email'] = $email;
 					$_SESSION['profilePic'] = $profilePic;
+
 					if ($_POST['rememberME']) {
 						if(!isset($_COOKIE['remember'])){
 							setcookie('remember',$_SESSION['user']);
 						}
 					}
+					$sqlQuery->free_result();
+
 					header("location: main.php");
 				} else {
 					$body .= "<strong>No entry exists in the database for the specified username and password.</strong>";
@@ -79,7 +82,7 @@ EBODY;
 			}
 		}
 		/* Closing connection */
-		$db_connection->close();
+        $db_connection->close();
 	}
 }
 	echo generatePage($body, $title = "Login");

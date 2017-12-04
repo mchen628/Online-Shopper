@@ -28,6 +28,7 @@
 
             $items = explode("^^^^", $objs);
             if(sizeof($items) > 0  && $items[0] != null){
+
                 for($i=0; $i<sizeof($items);$i++){
                     $itemObj = explode(",",$items[$i]);
 
@@ -45,9 +46,11 @@
 
                 }
             }
-            $sqlQuery->free_result();
+
+
         }
     }
+    $sqlQuery->free_result();
      //prevent sql injection (cyber security)
         $sqlQuery = $db_connection->prepare("select * from cartlist where email=?");
         $sqlQuery->bind_param("s", $email);
@@ -103,7 +106,6 @@
            <form name="upload_img" enctype="multipart/form-data" id="upload_img">
                    <input id="upload" type="file" accept="image/*">
           </form>
-          <h1>Budget: </h1>
 
 
         <hr><br>
@@ -163,7 +165,7 @@
 		<div class="row">
 			<div class="col-sm-4 ">
 				<strong>Your Budget: </strong><input type="text" id="budget" placeholder="Please enter your budget"><br><br>
-				<strong>Current Cart Cost: <strong><input type="text" id="budget" readonly><br>
+				<strong>Current Cart Cost: <strong><input type="text" id="cartCost" readonly><br>
 			</div>
 			<div class="col-sm-4 text-center">
 			</div>
