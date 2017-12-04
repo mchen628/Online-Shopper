@@ -211,7 +211,7 @@
 			<div class="col-sm-4 text-center">
 			</div>
 			<div class="col-sm-4 text-right text-down">
-				<input type="submit" value="Check out" name="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px"/></br>
+				<input type="submit" value="Check out" name="checkout" style="color:black; border-radius:6px; background-color:white; width: 150px"/></br>
 				</form><br>
 				<form action="{$_SERVER['PHP_SELF']}" method="post">
 					<input type='submit' name ='logout' value='LOGOUT'>

@@ -4,7 +4,7 @@ body {
     margin: 2em;
     background-image: url('background.gif');
     background-size: auto;
-    
+
 }
 
 fieldset {
@@ -68,9 +68,9 @@ fieldset {
 
 
 #welcome{
-
-    color: #2D2828 ;
-    text-shadow: 3px 3px 6px gray;
+    font-family: Sans-serif;
+    color: white ;
+    text-shadow: 3px 3px 6px AliceBlue ;
     font-size: 50px;
 }
 
