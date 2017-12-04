@@ -89,22 +89,22 @@ $(document).ready(function(){
         if(itemName != ""){
             let link = "";
             document.getElementById("links").innerHTML = "";
-            link += "<div style='position: relative;'>" + "For " + itemName + "<br>" +
-                "<a herf=\"https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords="
+            link += "" + "For " + itemName + "<br>" +
+                "<a href=\"https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords="
                 + itemName + "\"" +"target=\"_blank\">Amazon</a>" + "<br>" +
-                "<a herf=\"https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2323847.m570.l1313.TR12.TRC2.A0.H0.Xiphone.TRS0&_nkw=" +
+                "<a href=\"https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2323847.m570.l1313.TR12.TRC2.A0.H0.Xiphone.TRS0&_nkw=" +
                 itemName + "&_sacat=0\"" + "target=\"_blank\">eBay</a>" + "<br>" +
-                "<a herf=\"https://www.etsy.com/search?q=" + itemName + "\"" +"target=\"_blank\">Etsy</a>" + "<br>" +
-                "<a herf=\"https://www.newegg.com/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=" +
+                "<a href=\"https://www.etsy.com/search?q=" + itemName + "\"" +"target=\"_blank\">Etsy</a>" + "<br>" +
+                "<a href=\"https://www.newegg.com/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=" +
                 itemName + "&N=-1&isNodeId=1\"" + "target=\"_blank\">newegg</a>" + "<br>" +
-                "<a herf=\"https://www.bonanza.com/items/search?q[catalog_id]=&q[country_to_filter]=US&q[filter_category_id]=&q[in_booth_id]=&q[ship_country]=1&q[shipping_in_price]=0&q[sort_by]=relevancy&q[suggestion_found]=&q[translate_term]=true&q[search_term]="
+                "<a href=\"https://www.bonanza.com/items/search?q[catalog_id]=&q[country_to_filter]=US&q[filter_category_id]=&q[in_booth_id]=&q[ship_country]=1&q[shipping_in_price]=0&q[sort_by]=relevancy&q[suggestion_found]=&q[translate_term]=true&q[search_term]="
                 + itemName + "\"" + "target=\"_blank\">Bonanza</a>" + "<br>" +
-                "<a herf=\"https://www.ebid.net/us/perl/main.cgi?go=1&mo=search&category=&type=keyword&words=" +
+                "<a href=\"https://www.ebid.net/us/perl/main.cgi?go=1&mo=search&category=&type=keyword&words=" +
                 itemName + "&categoryid=\"" + "target=\"_blank\">eBid</a>" + "<br>" +
-                "<a herf=\"https://www.rubylane.com/search?q=" + itemName + "\"" +"target=\"_blank\">rubyLane</a>" + "<br>" +
-                "<a herf=\"https://www.ecrater.com/filter.php?keywords=" + itemName + "\"" +"target=\"_blank\">eCrater</a>" + "<br>" +
-                "<a herf=\"http://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=" + itemName + "\"" +"target=\"_blank\">Alibaba</a>" + "<br>" +
-                "</div>";
+                "<a href=\"https://www.rubylane.com/search?q=" + itemName + "\"" +"target=\"_blank\">rubyLane</a>" + "<br>" +
+                "<a href=\"https://www.ecrater.com/filter.php?keywords=" + itemName + "\"" +"target=\"_blank\">eCrater</a>" + "<br>" +
+                "<a href=\"http://www.alibaba.com/trade/search?fsb=y&IndexArea=product_en&CatId=&SearchText=" + itemName + "\"" +"target=\"_blank\">Alibaba</a>" + "<br>" +
+                "";
             document.getElementById("links").innerHTML += link ;
         }
         else{

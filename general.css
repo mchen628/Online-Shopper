@@ -25,7 +25,7 @@ fieldset {
 }
 
 .cssList {
-
+    position: relative;
     background-color: lightpink;
     border: .5em double red;
     border-radius: .9em;
@@ -82,12 +82,5 @@ hr{
     padding: 0;
 }
 
-.row{
-    position: relative;
-}
 
-a{
-    position: relative;
-    z-index: 9999;
-}
 
