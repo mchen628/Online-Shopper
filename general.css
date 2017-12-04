@@ -98,3 +98,9 @@ hr{
   margin: 1em;
   zoom: 1.50;
 }
+
+#WordColor{
+  background-color:black;
+  color:white;
+  font-size: 22px;
+}

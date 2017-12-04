@@ -151,14 +151,14 @@
         <hr><br>
 		<!-- ITEM INFO -->
 		<div class="row">
-			<div class="col-sm-4 text-center">
-				Item: <input type="text" id="item" placeholder="Search" size="25em">
+			<div class="col-sm-4 text-center" id="WordColor">
+				Item: &nbsp;&nbsp<input type="text" id="item" placeholder="Search" size="25em">
 			</div>
-			<div class="col-sm-4 text-center">
-				Price: <input type="text" id="price" placeholder="$0.00 (optional)" size="25em">
+			<div class="col-sm-4 text-center" id="WordColor">
+				Price:&nbsp;&nbsp;<input type="text" id="price" placeholder="$0.00 (optional)" size="25em">
 			</div>
-			<div class="col-sm-4 text-center">
-				Link: <input type="text" id="link" placeholder="www.example.com (optional)" size="25em">
+			<div class="col-sm-4 text-center" id="WordColor">
+				Link:&nbsp;&nbsp;<input type="text" id="link" placeholder="www.example.com (optional)" size="25em">
 			</div>
 		</div><br>
 
