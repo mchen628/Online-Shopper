@@ -32,18 +32,34 @@
 
                 for($i=0; $i<sizeof($items);$i++){
                     $itemObj = explode(",",$items[$i]);
+                        if($itemObj[2] != null){
+                            $addToWishCol = $addToWishCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
+                                                          "<li class=\"col-sm-3\">" .
+                                                          "<input type=\"checkbox\">" .
+                                                            "</li>" .
+                                                           "<li class=\"col-sm-5\">" ."<a href=\"$itemObj[2]\"target=\"_blank\">". $itemObj[0] ."</a>".
+                                                          "</li>" .
+                                                           "<li class=\"col-sm-4\">" .
+                                                           "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
+                                                           "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
+                                                            "</li>" .
 
-                    $addToWishCol = $addToWishCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
-                                                      "<li class=\"col-sm-3\">" .
-                                                      "<input type=\"checkbox\">" .
-                                                        "</li>" .
-                                                       "<li class=\"col-sm-5\">" . $itemObj[0] .
-                                                      "</li>" .
-                                                       "<li class=\"col-sm-4\">" .
-                                                       "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
-                                                       "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
-                                                        "</li>" .
-                                                        "</ul>";
+                                                          "</ul>";
+                        }
+                        else{
+                            $addToWishCol = $addToWishCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
+                                                                                      "<li class=\"col-sm-3\">" .
+                                                                                      "<input type=\"checkbox\">" .
+                                                                                        "</li>" .
+                                                                                       "<li class=\"col-sm-5\">" .$itemObj[0] .
+                                                                                      "</li>" .
+                                                                                       "<li class=\"col-sm-4\">" .
+                                                                                       "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
+                                                                                       "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
+                                                                                        "</li>" .
+
+                                                                                      "</ul>";
+                        }
 
                 }
             }
@@ -74,19 +90,31 @@
                     for($i=0; $i<sizeof($items);$i++){
                         //inside each item its seperated by a comma (e.g name,cost,link)
                         $itemObj = explode(",",$items[$i]);
-
-                        $addToCartCol = $addToCartCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
+                        if($itemObj[2] != null){
+                            $addToCartCol = $addToCartCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
                                                           "<li class=\"col-sm-3\">" .
                                                           "<input type=\"checkbox\">" .
                                                             "</li>" .
-                                                           "<li class=\"col-sm-5\">" . $itemObj[0] .
+                                                           "<li class=\"col-sm-5\">" ."<a href=\"$itemObj[2]\"target=\"_blank\">". $itemObj[0] ."</a>".
                                                           "</li>" .
                                                            "<li class=\"col-sm-4\">" .
 																													 "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
 		                                                       "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
 		                                                        "</li>" .
 		                                                        "</ul>";
-
+                        }else{
+                             $addToCartCol = $addToCartCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
+                                                                                      "<li class=\"col-sm-3\">" .
+                                                                                      "<input type=\"checkbox\">" .
+                                                                                        "</li>" .
+                                                                                       "<li class=\"col-sm-5\">".$itemObj[0] .
+                                                                                      "</li>" .
+                                                                                       "<li class=\"col-sm-4\">" .
+                            																													 "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
+                            		                                                       "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
+                            		                                                        "</li>" .
+                            		                                                        "</ul>";
+                        }
                     }
                 }
 
