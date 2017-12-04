@@ -26,7 +26,7 @@
 			</form><br>
 
 			<input type="checkbox" name="rememberME" value="Remember Me" /> Remember Me</br>
-			<a href ="forgotpw.php"/>Forgot Password?
+			<a href ="forgotpw.php"/>Forgot Password?</a>
 
 			</fieldset>
 		</div>
