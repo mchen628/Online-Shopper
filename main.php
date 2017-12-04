@@ -163,7 +163,7 @@
 		</div><br>
 
 		<!-- ADD TO LIST / ADD TO CART / GENERATE LINKS -->
-		<div class="row">
+		<div class="row" >
 			<div class="col-sm-4 text-center">
 				<input type="button" id="addList" value="Add to wish list">
 			</div>
@@ -176,9 +176,9 @@
 		</div><br>
 
 		<!-- LISTS -->
-		<div class="row">
+		<div class="row" style="height: 30em;">
 			<!-- WISH LIST -->
-			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
+			<div class="col-sm-4 text-center">
 				<div id="wish" class="cssList">
 					<!-- ITEM GETS ADDED HERE -->
 					{$addToWishCol}
@@ -186,7 +186,7 @@
 			</div>
 
 			<!-- CART -->
-			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
+			<div class="col-sm-4 text-center" height: 30em;">
 				<div id="cart" class="cssList">
 					<!-- ITEM GETS ADDED HERE -->
 					{$addToCartCol}
@@ -194,29 +194,29 @@
 			</div>
 
 			<!-- LINKS -->
-			<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
+			<div class="col-sm-4 text-center" height: 30em;">
 				<div id="links" class="cssList">
 					<!-- LINKS GETS ADDED HERE -->
-
+					<strong>No entry</stong>
 				</div>
 			</div>
 		</div><br>
 
 		<div class="row">
-			<div class="col-sm-4 ">
-			<form action="{$_SERVER['PHP_SELF']}" method="post">
-				<strong>Your Budget: &nbsp;</strong><input type="number" name="budget" placeholder="$0.00" size="50" required><br><br>
-				<strong>Enter your tax: <input type="text" name="tax" size="3" required>%<br><br>
+			<div class="col-sm-4 " style="background-color: #00BFFF;">
+				<form action="{$_SERVER['PHP_SELF']}" method="post"><br>
+					<strong>Your Budget: &nbsp;</strong><input type="number" name="budget" placeholder="$0.00" size="50" required><br><br>
+					<strong>Enter your tax: <input type="text" name="tax" size="3" required>%<br><br>
 			</div>
 			<div class="col-sm-4 text-center">
 			</div>
 			<div class="col-sm-4 text-right text-down">
-			<input type="submit" value="Check out" name="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px"/></br>
-			</form>
-			<form action="{$_SERVER['PHP_SELF']}" method="post">
-			<input type='submit' name ='logout' value='LOGOUT'>
-			</form>
-		</div>
+				<input type="submit" value="Check out" name="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px"/></br>
+				</form><br>
+				<form action="{$_SERVER['PHP_SELF']}" method="post">
+					<input type='submit' name ='logout' value='LOGOUT'>
+				</form>
+			</div>
 		<div id="email" style="visibility: hidden;">{$email}</div>
 
 EBODY;

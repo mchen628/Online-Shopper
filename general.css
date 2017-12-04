@@ -2,8 +2,9 @@ body {
 
     font-family: Times New Roman;
     margin: 2em;
-    background-color: lightblue;
-    background-size: 1200px 1200px;
+    background-image: url('background.gif');
+    background-size: auto;
+    
 }
 
 fieldset {
