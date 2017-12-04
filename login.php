@@ -66,6 +66,7 @@ EBODY;
 				if(password_verify($password,$hashed)) {
 					$_SESSION['user'] = $firstname ." ". $lastname;
 					$_SESSION['email'] = $email;
+					$_SESSION['profilePic'] = $profilePic;
 					if ($_POST['rememberME']) {
 						if(!isset($_COOKIE['remember'])){
 							setcookie('remember',$_SESSION['user']);

@@ -85,6 +85,11 @@
                 $sqlQuery->free_result();
             }
         }
+     if(isset($_SESSION['profilePic'])){
+        $profilePic = "<img id=\"profilePic\" src=\"".$_SESSION['profilePic']."\" alt=\"image\"/>";
+     }else{
+        $profilePic = "<img id=\"profilePic\" src=\"#\" alt=\"image\"/>";
+     }
 
     /* Closing connection */
     $db_connection->close();
@@ -94,8 +99,10 @@
     $email = $_SESSION['email'];
 	$body=<<<EBODY
           <h1 id="welcome" align="right">Welcome to Online-Shopper, $user</h1><br>
-          <img class="profilePic" src="#" alt="image"/>
-          <input id="upload" type="file" accept="image/*">
+          {$profilePic}
+           <form name="upload_img" enctype="multipart/form-data" id="upload_img">
+                   <input id="upload" type="file" accept="image/*">
+          </form>
           <h1>Budget: </h1>
 
 

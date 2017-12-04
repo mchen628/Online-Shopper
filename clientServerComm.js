@@ -151,22 +151,26 @@ $(document).ready(function(){
     });
     $('#upload').change(function() {
         //get file object
+        let dataForm = new FormData();
         let file = document.getElementById('upload').files[0];
-
-        if (file) {
+        if (dataForm) {
+            dataForm.append("image",file);
+            dataForm.append("email",$("#email").text());
+            dataForm.append("path", file.url);
             $.ajax({
                 url: 'addImageToDataBase.php',
-                data: {
-                    file:file,email:$("#email").text(),table:"carts"
-                },
-                success: function(data){
-                    $("#profile").attr("src", "data:image/png;base64,"+ data);
-                },
-                dataType: 'image/*',
-                type: 'POST',
+                data: dataForm,
                 error: function() {
                     alert("an error has occured");
-                }
+                },
+                success: function(data){
+
+                    $("#profilePic").attr("src", data);
+                },
+                contentType: false, //must, tell jQuery not to process the data
+                processData: false,
+                type: 'POST'
+
             });
         }
 
