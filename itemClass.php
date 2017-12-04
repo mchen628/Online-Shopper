@@ -7,7 +7,6 @@ class Item {
             $this->link = $link;
         }
         function getName(){
-
             return $this->name;
         }
         function getPrice(){
@@ -18,7 +17,6 @@ class Item {
         }
         function setName($name){
             $this->name =$name;
-
         }
         function setPrice($price){
             $this->price = $price;
