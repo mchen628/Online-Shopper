@@ -82,11 +82,10 @@
                                                            "<li class=\"col-sm-5\">" . $itemObj[0] .
                                                           "</li>" .
                                                            "<li class=\"col-sm-4\">" .
-                                                           "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
-                                                           "<button style=\"background-image:url('delete.jpg');width:17px; height:17px;
-                                                                                background-size: 14px 14px;\"></button>" .
-                                                            "</li>" .
-                                                            "</ul>";
+																													 "<span style=\"font-size: .75em; float: left\">$" . $itemObj[1] . "</span>" .
+		                                                       "<input type=\"image\" src=\"delete.jpg\"  width=\"15\" height=\"15\" id=\"delete\"/>" .
+		                                                        "</li>" .
+		                                                        "</ul>";
 
                     }
                 }
@@ -184,7 +183,10 @@
 			<div class="col-sm-4 text-center">
 			</div>
 			<div class="col-sm-4 text-right text-down">
-			<input type="submit" value="Check out" name="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px"/>
+			<input type="submit" value="Check out" name="checkout" style="color:white; border-radius:6px; background-color:black; width: 150px"/></br>
+			</form>
+			<form action="{$_SERVER['PHP_SELF']}" method="post">
+			<input type='submit' name ='logout' value='LOGOUT'>
 			</form>
 		</div>
 		<div id="email" style="visibility: hidden;">{$email}</div>
@@ -196,6 +198,11 @@ if (isset($_POST['checkout'])){
 	$_SESSION['tax'] = trim($_POST['tax']);
 	$_SESSION['checkout'] = $_POST['checkout'];
 	header("location:checkout.php");
+}
+
+if (isset($_POST['logout'])){
+	setcookie("remember", "", time()-3600);
+	header("location:login.php");
 }
 
 	echo generatePage($body, $title = "Main Page");

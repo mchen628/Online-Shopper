@@ -35,7 +35,8 @@ if (!$result) {
 								$itemObj = explode(",",$items[$i]);
 
 								$addToCartCol = $addToCartCol."<ul class=\"row\" style='list-style: none; padding: 0; margin: 0;'>" .
-																									 "<li>" . $itemObj[0] .
+																									 "<li class=\"col-sm-5\">" . $itemObj[0] .
+																									 "</li ><li>".
 																									 "<span style=\"font-size: .80em; float: right\">$" . $itemObj[1] . "&nbsp&nbsp</span>" .
 																									 "</li>" .
 																									 "</ul>";
@@ -55,6 +56,7 @@ $body=<<<EBODY
   <div class="row">
 	<!-- CARTlist -->
 	<div class="col-sm-4 text-center" style="background-color: LightBlue; height: 30em;">
+
 		<div id="cart" class="checkoutcss">
 			<!-- ITEM GETS ADDED HERE -->
 			{$addToCartCol}
@@ -65,9 +67,9 @@ $body=<<<EBODY
 		<strong>Your Budget :</strong>&nbsp;&nbsp;$ {$budget} </br></br>
 		<strong>Your cart cost :</strong> $ {$total}
 		<hr>
-		<strong>Tax : &nbsp; </storng> <input type="number" name="tax" size="3" value="$tax" required>%
+		<strong>Tax : &nbsp; </storng> <input type="text" name="tax" size="3" value="$tax" readonly>%
 		<hr>
-	</form>
+
 
 EBODY;
 
@@ -76,11 +78,17 @@ $totalAfterTax = ($total * $tx);
 $balance = $budget - $totalAfterTax;
 $body .= "<strong>Total cost after tax = </strong> {$totalAfterTax} </br></br>";
 $body .= "<strong>Your balance :</strong> {$balance}";
-$body .= "</div></div>";
+$body .= "</div>";
+$body .= "<div class='col-sm-4' >";
+$body .= "<input type='submit' name ='logout' value='LOGOUT'>";
+$body .= "</div>";
+$body .= "</div></form>";
 
 
-
-
+if (isset($_POST['logout'])){
+	setcookie("remember", "", time()-3600);
+	header("location:login.php");
+}
 
   echo generatePage($body, $title = "Main Page");
 ?>
